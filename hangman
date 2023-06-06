@@ -1,0 +1,110 @@
+import random
+
+print("WELCOME TO GAME HANGMAN")
+print("====================================")
+print("====================================")
+
+kamusKata = ["sunflower", "table", "chair", "glass", "house", "diamond", "jokes","yeet","hello", "rose", "howdy", "grape", "apple", "hoax", "shoes"]
+
+### Pilih kata secara acak
+kataTerpilih = random.choice(kamusKata)
+
+for x in kataTerpilih:
+  print("_", end=" ")
+
+def print_hangman(salah):
+  if(salah == 1): 
+    print("\n+---+")
+    print("O   |")
+    print("    |")
+    print("    |")
+    print("   ===")
+  elif(salah == 2):
+    print("\n+---+")
+    print("O   |")
+    print("|   |")
+    print("    |")
+    print("   ===")
+  elif(salah == 3):
+    print("\n+---+")
+    print(" O  |")
+    print("/|  |")
+    print("    |")
+    print("   ===")
+  elif(salah == 4):
+    print("\n+---+")
+    print(" O  |")
+    print("/|\ |")
+    print("    |")
+    print("   ===")
+  elif(salah == 5):
+    print("\n+---+")
+    print(" O  |")
+    print("/|\ |")
+    print("/   |")
+    print("   ===")
+  elif(salah == 6):
+    print("\n+---+")
+    print(" O   |")
+    print("/|\  |")
+    print("/ \  |")
+    print("    ===")
+
+def printKata(hurufTebakan):
+  counter=0
+  jumlahBenar=0
+  for char in kataTerpilih:
+    if(char in hurufTebakan):
+      print(kataTerpilih[counter], end=" ")
+      jumlahBenar+=1
+    else:
+      print("_", end=" ")
+    counter+=1
+  return jumlahBenar
+
+def printGaris():
+  print("\r")
+  for char in kataTerpilih:
+    print("\u203E", end=" ")
+
+panjang_kata_terpilih = len(kataTerpilih)
+jumlah_kesalahan = 0
+posisi_tebakan_sekarang = 0
+huruf_tebakan_saat_ini = []
+jumlah_huruf_benar = 0
+
+while(jumlah_kesalahan != 6 and jumlah_huruf_benar != panjang_kata_terpilih):
+  print("\nLetters are Already Guessed: ")
+  for huruf in huruf_tebakan_saat_ini:
+    print(huruf, end=" ")
+
+  ### Meminta input dari user
+  hurufTebakan = input("\nGuess One Letter: ")
+
+  ### Jika huruf tebakan sudah pernah ditebak
+  if hurufTebakan in huruf_tebakan_saat_ini:
+    print("Letters", hurufTebakan, "Already Guessed Earlier.")
+
+  ### Jika tebakan benar
+  elif hurufTebakan in kataTerpilih:
+    huruf_tebakan_saat_ini.append(hurufTebakan)
+    jumlah_huruf_benar = printKata(huruf_tebakan_saat_ini)
+    printGaris()
+    if jumlah_huruf_benar == panjang_kata_terpilih:
+      print("\n==========Congrats! U WINNN!==========")
+
+  ### Jika tebakan salah 
+  else:
+    jumlah_kesalahan+=1
+    huruf_tebakan_saat_ini.append(hurufTebakan)
+
+    ### Perbarui gambar
+    print_hangman(jumlah_kesalahan)
+    ### Print kata
+    jumlah_huruf_benar = printKata(huruf_tebakan_saat_ini)
+    printGaris()
+   
+if jumlah_huruf_benar != panjang_kata_terpilih:
+  print("\n=======Game is over! YOU LOSE:(=======")
+  
+print("=============Thanks A Lot!============")
