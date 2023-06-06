@@ -16,7 +16,7 @@ Penjelasan Output :
 
 Setelah menjalankan kode pada Gambar 1, output yang dihasilkan akan memulai dengan pesan "WELCOME TO GAME HANGMAN" yang mencetak judul game. Kemudian, dua baris garis horizontal akan ditampilkan sebagai pemisah sebelum game hangman dimulai. Selanjutnya, kode akan memilih secara acak sebuah kata dari kamus kata yang telah ditentukan sebelumnya. Kata terpilih akan ditampilkan dalam bentuk garis-garis bawah, dengan setiap hurufnya digantikan oleh underscore. Jumlah underscore yang ditampilkan akan sesuai dengan panjang kata yang dipilih.
  
-<img width="297" alt="image"  src="https://user-images.githubusercontent.com/124637094/243648395-bb5237fe-975b-4e9e-859b-e815313ab71b.png">
+<img width="297" alt="output_1" src="https://user-images.githubusercontent.com/124637094/e1e77c92-9033-431d-9578-a98cd8360057.png">
 
 Seperti pada Gambar diatas terdapat 4 underscore yang berarti kata yang harus ditebak terdapat 4 huruf. Setelah itu, user diminta untuk menebak satu huruf. Jika huruf yang ditebak benar, huruf tersebut akan ditambahkan ke daftar huruf yang sudah ditebak, huruf tersebut diletakkan sesuai dengan posisinya di atas underscore. Kata terpilih yang ditampilkan akan diperbarui, dengan huruf yang ditebak menggantikan underscore pada posisi yang sesuai. Jumlah huruf yang ditebak dengan benar akan ditampilkan. Jika semua huruf telah ditebak dengan benar dan sesuai dengan kata yang sesuai dengan kamus program, program akan menampilkan pesan "Congrats! U WINNN!" yang menandakan user sebagai pemenang dan permainan telah selesai.
 
